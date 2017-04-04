@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="about">
+        <h1>How to build this website and deploy it on AWS</h1>
+        <p>Here is a step-by-step guide to build and deploy this exact website using Flask and Amazon Web Services (AWS).</p>
+
+        <h3>Code the app</h3>
+        <p>You can deploy a static website such as this with a single file, but because
+           we're here to learn, we're going to build one with four. <a href='http://pythonhow.com/building-a-website-with-python-flask'>This tutorial</a> does a really great job of explaining how to code the app itself, and of what each folder, file, and line of code does, though we diverge from them when it comes time to deploy. I highly recommend reading through the tutorial if you want to understand what's happening. Since they explain things prety well, I won't go into that sort of detail here, but have left informative comments in the source code.</p>
+
+        <p>Rather than write a full tutorial to build this full site yourself (all four files!),
+           you can view and copy or download the source code from my Github page.</p>
+
+        <p>Before getting started, you'll first want to pick or create the folder where the source code will live. The standard on Macs is <code>~/src/<your_folder></code>, but you can put it anywhere you choose.</p>
+
+        <h3>To Copy and Assemble Yourself</h3>
+        <p>Use the following file structure:<br>
+            <pre><code>
+                your_folder_name/
+                    application.py
+                    requirements.txt
+                    static/
+                        css/
+                            main.css
+                    templates/
+                        home.html
+                        how_to.html
+                        layout.html
+            </pre></code>
+
+        To do this, you can make use of the <code>touch</code> and <code>mkdir</code> terminal
+        commands (on a Mac). If you're unfamiliar with those, check out
+        <a href='http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line'>this tutorial</a> for Macs and <a href='https://www.google.com/search?q=basic+terminal+commands+tutorial&oq=basic+terminal+commands+tutorial&aqs=chrome..69i57.4518j0j4&sourceid=chrome&ie=UTF-8#q=basic+terminal+commands+tutorial+windows&*'>this Google search</a><sup>[<a href='#footnote1'>1</a>]</sup> for Windows.</p>
+
+        <p>The aforementioned <a href='http://pythonhow.com/add-css-to-flask-website'>Flask
+           tutorial</a> explains how to link CSS style sheets to templates,
+           and how and why <code>layout.html</code> is useful and necessary.
+
+        <h3>To Download</h3>
+        <p>If you've never cloned a repository before, here's a guide on how to do that.
+           Short version: Click the green "Clone or Download" button on the righthand side
+           of the page, and choose any option. The easiest for beginners is probably
+           "Download ZIP." This will show up in your Downloads folder (<code>~/Downloads</code> on a Mac) and you can drag and drop it or use your command line to move it to whatever folder you want.</p>
+
+        <h3>Create a Virtual Environment</h3>
+        <p>
+            Usually you do this before you start coding, but for this simple tutorial we can do it towards the end. How you set up your virtual environment depends on which version of Python you are using. (To find out, simply type 'python' into your command line and read the output.) If you are on Python 2, use <a href=''><code>virtualenv</code></a>. If you are on Python 3, use <a href='https://docs.python.org/3/library/venv.html'><code>venv</code></a>. Either way, once it's installed, the standard setup is to create the virtual environment in the same folder as <code>your_folder_name/</code>.
+
+        <h3>Prepare to Deploy!</h3>
+        <p>
+            A couple things need to happen before you're ready to deploy. First, you need to install Flask. Do this once you've activated your virtual environment, and then type <code>pip install flask</code> into your terminal. Then <code>cd your_folder_name/</code> and enter <code>pip freeze > requirements.txt</code>. This command figures out every Python package and folder you need to run your app (in this case, only Flask and its dependencies) and pipes them into a file called <code>requirements.txt</code> that indicates what versions of what libraries you need at runtime. While that file exists in the git repo you either downloaded or copied this file from, updating it yourself helps to make sure it's correct and compatible with your setup. If something breaks, you can always just copy and paste the <code>requirements.txt</code> from the git repo and make sure you have the correct versions of everything installed.
+        </p>
+
+        <h3>DEPLOY!</h3>
+
+        <p>
+            Since we're using AWS, you'll first need to set up an AWS account. They will ask for payment information, but it is quite easy to stay within the free tier of their offerings, so long as you set up the correct size instance and don't expect any spikes in your traffic.
+        </p>
+        <p>
+            Once your account is set up, navigate to the Elastic Beanstalk homepage.
+        </p>
+        <p>
+            Set up your configuration this way - t2.micro
+        </p>
+        <p>
+            Compress your files correctly and from the correct folder.
+        </p>
+        <br>
+        <sup id='footnote1'>[1] As a Mac user, I am yet unfamiliar with Windows and therefore any recommendation I might give for Windows tutorials would actually be just a guess as to whether or not it's a helpful, or even accurate, tutorial. So, rather than linking to a specific tutorial for Windows, I've link to potentially helpful Google search.</sup>
+
+   </div>
+{% endblock %}
