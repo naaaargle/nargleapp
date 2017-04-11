@@ -16,6 +16,11 @@ def home():
 def fordham():
     return render_template('fordham.html')
 
+
+@app.route('/mary-page')
+def mary_page():
+    return render_template('mary_new.html')
+
 # Python assigns the name "__main__" to a script when it is executed. Since this file
 # is the one doing the executing, it retains the name "__main__" rather than inheriting
 # the name of the file it lives in (e.g. filename.py).
