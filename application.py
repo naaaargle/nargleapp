@@ -12,9 +12,9 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/how-to')
-def how_to():
-    return render_template('how_to.html')
+@app.route('/fordham')
+def fordham():
+    return render_template('fordham.html')
 
 # Python assigns the name "__main__" to a script when it is executed. Since this file
 # is the one doing the executing, it retains the name "__main__" rather than inheriting
