@@ -41,18 +41,35 @@ body {
 
 .greeting-text h1 {
   font-family: proxima-nova sans-serif;
-  font-size: 75px;
+  font-size: 10vw;
   letter-spacing: .1em;
   padding-bottom: 15px;
 }
 
 .greeting-text span {
   letter-spacing: .1em;
+  font-size: 2vw;
 }
 
 .highlight-1 {
   background-color: white;
   color: #45555f;
   width: 100%;
-  margin: 10%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 5vw;
+}
+
+iframe {
+  max-width: 90%;
+/*  position: absolute;
+  display: block;*/
+  width: 90%
+}
+
+.video-container {
+  text-align:center;
+  width:100%;
 }
